@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shihas Yasin S | Professional Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #181a1b;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #23272a;
+      padding: 1.2rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: #00adb5;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00adb5;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #00adb5;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .home {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      min-height: 60vh;
+      position: relative;
+    }
+
+    .home-content {
+      flex: 2;
+    }
+
+    .home h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #f5f5f5;
+    }
+
+    .home .subtitle {
+      font-size: 1.3rem;
+      color: #b0b0b0;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+      margin-top: 1rem;
+      padding: 0.9rem 2rem;
+      background-color: #00adb5;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background 0.3s;
+      box-shadow: 0 2px 8px rgba(0,173,181,0.08);
+    }
+
+    .cta-button:hover {
+      background-color: #007b7f;
+    }
+
+    /* Added for button spacing */
+    .cta-buttons-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Social Icons Styles */
+    .home-social-icons {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      display: flex;
+      flex-direction: row; /* Changed from column to row */
+      gap: 1.1rem;
+      z-index: 10;
+    }
+    .home-social-icons a {
+      color: #00adb5;
+      background: #23272a;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      box-shadow: 0 2px 8px rgba(0,173,181,0.10);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+    }
+    .home-social-icons a:hover {
+      background: #00adb5;
+      color: #181a1b;
+      transform: translateY(-3px) scale(1.08);
+    }
+    .home-social-icons .tooltip {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #23272a;
+      color: #f5f5f5;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      margin-top: 0.3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      z-index: 20;
+    }
+    .home-social-icons a:hover .tooltip {
+      display: block;
+    }
+
+    /* Responsive for social icons */
+    @media (max-width: 900px) {
+      .home {
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+      }
+      .section {
+        padding: 3rem 1rem;
+      }
+      .education-section {
+        padding: 2.5rem 1rem;
+      }
+      .cta-buttons-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+      }
+      .home-social-icons {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        gap: 1.2rem;
+      }
+      .home-social-icons .tooltip {
+        right: auto;
+        left: 50%;
+        top: 110%;
+        margin-right: 0;
+        transform: translateX(-50%);
+      }
+    }
+
+    .about-content {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-bottom: 1.2rem;
+    }
+
+    .education-list {
+      margin-top: 1.5rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .education-list li {
+      margin-bottom: 0.7rem;
+      font-size: 1.05rem;
+    }
+
+    /* New Education Section Styles */
+    .education-section {
+      background: #202325;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,173,181,0.07);
+      margin-bottom: 2.5rem;
+      margin-top: -2rem;
+    }
+    .education-section .section-title {
+      margin-bottom: 1.2rem;
+    }
+    .education-timeline {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .education-timeline li {
+      margin-bottom: 1.2rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #00adb5;
+      padding-bottom: 0.5rem;
+      position: relative;
+    }
+    .education-timeline li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .education-timeline .degree {
+      font-weight: 600;
+      color: #00adb5;
+      font-size: 1.13rem;
+    }
+    .education-timeline .institution {
+      color: #e0e0e0;
+      font-size: 1.05rem;
+      margin-top: 0.1rem;
+    }
+    .education-timeline .year {
+      color: #b0b0b0;
+      font-size: 0.98rem;
+      margin-top: 0.1rem;
+    }
+    .education-timeline .details {
+      color: #b0e0e6;
+      font-size: 0.98rem;
+      margin-top: 0.1rem;
+    }
+
+    .skills-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .skill {
+      background: #23272a;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #00adb5;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .skill:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,173,181,0.10);
+      background: #1f2326;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #23272a;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(0,173,181,0.10);
+    }
+
+    .card h3 {
+      color: #00adb5;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .card .project-meta {
+      font-size: 0.98rem;
+      color: #b0b0b0;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .project-desc {
+      color: #e0e0e0;
+      font-size: 1.05rem;
+    }
+
+    /* Mini Projects Section Styles */
+    .mini-projects-section {
+      background: #202325;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,173,181,0.07);
+      margin-bottom: 2.5rem;
+      margin-top: -2rem;
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .mini-projects-section .section-title {
+      margin-bottom: 1.2rem;
+    }
+    .mini-projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .mini-project-card {
+      background: #23272a;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .mini-project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,173,181,0.10);
+      background: #1f2326;
+    }
+    .mini-project-title {
+      color: #00adb5;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .mini-project-tech {
+      color: #b0b0b0;
+      font-size: 0.98rem;
+      margin-bottom: 0.2rem;
+    }
+    .mini-project-desc {
+      color: #e0e0e0;
+      font-size: 1.01rem;
+    }
+
+    /* Removed .services-list and .service styles */
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto 2rem auto;
+      background: #23272a;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background-color: #1f1f1f;
+      color: #f5f5f5;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background: #00adb5;
+      border: none;
+      padding: 0.8rem;
+      color: white;
+      border-radius: 4px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #007b7f;
+    }
+
+    .contact-info {
+      text-align: center;
+      color: #b0b0b0;
+      font-size: 1.05rem;
+      margin-top: 1.5rem;
+      min-height: 7em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-info a {
+      color: #00adb5;
+      text-decoration: none;
+      transition: text-decoration 0.2s;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-info .highlight {
+      color: #00adb5;
+      font-weight: bold;
+      font-size: 1.1em;
+      background: #23272a;
+      border-radius: 5px;
+      padding: 0.2em 0.5em;
+      margin: 0.2em 0;
+      display: inline-block;
+    }
+
+    footer {
+      background-color: #23272a;
+      color: #aaa;
+      text-align: center;
+      padding: 1.2rem;
+      margin-top: 2rem;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Contact details data
+      const contactDetails = {
+        email: {
+          label: "Email",
+          value: "shihasyasin@gmail.com",
+          link: "mailto:shihasyasin@gmail.com",
+          icon: '<i class="fas fa-envelope"></i>'
+        },
+        phone: {
+          label: "Phone",
+          value: "+91 9605698790",
+          link: "tel:+919605698790",
+          icon: '<i class="fas fa-phone"></i>'
+        },
+        linkedin: {
+          label: "LinkedIn",
+          value: "linkedin.com/in/shihasyasin",
+          // The link here is not used for the icon click, but for the contact info display.
+          link: "https://linkedin.com/in/shihasyasin",
+          icon: '<i class="fab fa-linkedin-in"></i>'
+        },
+        github: {
+          label: "GitHub",
+          value: "github.com/shihasyasin",
+          link: "https://github.com/shihasyasin",
+          icon: '<i class="fab fa-github"></i>'
+        },
+        location: {
+          label: "Location",
+          value: "Palakkad, India",
+          link: "https://www.google.com/maps/place/Palakkad,+India",
+          icon: '<i class="fas fa-map-marker-alt"></i>'
+        }
+      };
+
+      // Add click event listeners to social icons
+      document.querySelectorAll('.home-social-icons a[data-contact]').forEach(function (icon) {
+        icon.addEventListener('click', function (e) {
+          const type = icon.getAttribute('data-contact');
+          // Special handling for LinkedIn icon
+          if (type === 'linkedin') {
+            // Open the required LinkedIn URL in a new tab
+            window.open('https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fpublic-profile%2Fsettings%3Flipi%3Durn%253Ali%253Apage%253Ad_flagship3_profile_self_edit_contact-info%253BQtTLL296QPKiq132BYB9yg%253D%253D', '_blank');
+            return;
+          }
+          e.preventDefault();
+          const info = contactDetails[type];
+          if (info) {
+            // Scroll to contact section
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            // Show only the selected contact info
+            const contactInfoDiv = document.querySelector('.contact-info');
+            contactInfoDiv.innerHTML = `
+              <div class="highlight">${info.icon} ${info.label}:</div>
+              <div style="margin-top:0.5em;">
+                ${info.link ? `<a href="${info.link}" target="_blank" class="highlight">${info.value}</a>` : `<span class="highlight">${info.value}</span>`}
+              </div>
+              <button style="margin-top:1.5em;padding:0.5em 1.2em;background:#00adb5;border:none;border-radius:4px;color:#fff;cursor:pointer;font-size:1em;" id="showAllContactBtn">Show All Contact Info</button>
+            `;
+            // Add event to restore all info
+            document.getElementById('showAllContactBtn').onclick = function () {
+              showAllContactInfo();
+            };
+          }
+        });
+      });
+
+      // Function to restore all contact info
+      function showAllContactInfo() {
+        const contactInfoDiv = document.querySelector('.contact-info');
+        contactInfoDiv.innerHTML = `
+          <p>Email: <a href="mailto:shihasyasin@gmail.com">shihasyasin@gmail.com</a></p>
+          <p>Phone: <a href="tel:+919605698790">+91 9605698790</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/shihasyasin" target="_blank">linkedin.com/in/shihasyasin</a></p>
+          <p>GitHub: <a href="https://github.com/shihasyasin" target="_blank">github.com/shihasyasin</a></p>
+          <p>Location: Palakkad, India</p>
+        `;
+      }
+      // Optionally, expose to global for other scripts
+      window.showAllContactInfo = showAllContactInfo;
+    });
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-logo">Shihas Yasin S</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#mini-projects">Mini Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home / Hero Section -->
+  <section id="home" class="section home">
+    <!-- Social Icons in the right corner -->
+    <div class="home-social-icons">
+      <a href="#" data-contact="email" title="Email">
+        <span class="tooltip">Email</span>
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="#" data-contact="phone" title="Phone">
+        <span class="tooltip">Phone</span>
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="#" data-contact="linkedin" title="LinkedIn">
+        <span class="tooltip">LinkedIn</span>
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#" data-contact="github" title="GitHub">
+        <span class="tooltip">GitHub</span>
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="#" data-contact="location" title="Location">
+        <span class="tooltip">Location</span>
+        <i class="fas fa-map-marker-alt"></i>
+      </a>
+    </div>
+    <div class="home-content">
+      <h1>Shihas Yasin S</h1>
+      <div class="subtitle">I'm a Full Stack Developer</div>
+      <div class="cta-buttons-group">
+        <button class="cta-button" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'});">View My Work</button>
+        <a href="https://drive.google.com/file/d/1eW1DNELiY0mindHV3sALYnDuVI1vhBqh/view"><button class="cta-button">View Resume</button></a>
+      </div>
+    </div>
+    <!-- Removed profile image section -->
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <div class="section-title">About Me</div>
+    <div class="about-content">
+      I am a B.Tech graduate in Artificial Intelligence and Data Science, driven by a strong passion for technology and problem-solving. My core strength lies in Full Stack Development, with hands-on experience in Java , Python, SQL, and web development.
+Currently interning in Java Full Stack Development at Jspiders Bangalore, I'm constantly expanding my skills and working on innovative projects that bridge the gap between AI and practical applications.
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section education-section">
+    <div class="section-title">Education</div>
+    <ul class="education-timeline">
+      <li>
+        <div class="degree">B.Tech in Artificial Intelligence & Data Science</div>
+        <div class="institution">Dhanalakshmi Srinivasan College of Engineering Coimbatore</div>
+        <div class="year">2021 - 2025</div>
+        <div class="details">CGPA: 8.2</div>
+      </li>
+      <li>
+        <div class="degree">Higher Secondary (Computer Science)</div>
+        <div class="institution">Pandit Motilal Govt HSS, Palakkad</div>
+        <div class="year">2019 – 2021</div>
+        <div class="details">Percentage: 93%</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-icons">
+      <div class="skill">Core Java</div>
+      <div class="skill">Python</div>
+      <div class="skill">SQL</div>
+      <div class="skill">HTML, CSS, JavaScript</div>
+      <div class="skill">GitHub</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <div class="section-title">Projects</div>
+    <div class="project-cards">
+      <div class="card">
+        <h3>Campus Placement Management System</h3>
+        <div class="project-meta"><strong>Role:</strong> Frontend Developer</div>
+        <div class="project-meta"><strong>Tech:</strong> Python, MongoDB, HTML, CSS, JavaScript, PHP</div>
+        <div class="project-desc">
+          Developed an AI-powered web application to automate and manage campus placement processes, featuring job recommendations, predictive analytics, and resume screening.
+        </div>
+      </div>
+      <div class="card">
+        <h3>Personal Portfolio Website</h3>
+        <div class="project-meta"><strong>Role:</strong> Frontend Developer</div>
+        <div class="project-meta"><strong>Tech:</strong> HTML & CSS , Bootstrap</div>
+        <div class="project-desc">
+          Designed and developed a responsive personal portfolio to showcase projects, skills, and services.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mini Projects Section -->
+  <section id="mini-projects" class="mini-projects-section section">
+    <div class="section-title">Mini Projects</div>
+    <ul class="mini-projects-list">
+      <!-- Core Java Mini Projects -->
+      <li class="mini-project-card">
+        <div class="mini-project-title"><i class="fab fa-java"></i> Banking Application </div>
+        <div class="mini-project-tech">Core Java</div>
+        <div class="mini-project-desc">
+          Developed a console-based Banking Application using Core Java that performs basic operations such as account creation, deposit, withdrawal, and balance checking, demonstrating key object-oriented programming concepts.
+        </div>
+      </li>
+      <li class="mini-project-card">
+        <div class="mini-project-title"><i class="fab fa-java"></i> Number Guessing Game </div>
+        <div class="mini-project-tech">Core Java</div>
+        <div class="mini-project-desc">
+          Developed a console-based Number Guessing Game using Core Java where the user guesses a randomly generated number within a range, featuring input validation and user feedback through loops and conditional statements.
+        </div>
+      </li>
+      <!-- HTML & CSS Mini Projects -->
+      <li class="mini-project-card">
+        <div class="mini-project-title"><i class="fab fa-html5"></i> Restaurant Home Page </div>
+        <div class="mini-project-tech">HTML, CSS</div>
+        <div class="mini-project-desc">
+          Developed a responsive Restaurant Home Page using HTML and CSS, featuring a modern layout with sections for menu, about, and contact to showcase front-end design skills.
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="section-title">Contact Me</div>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:shihasyasin@gmail.com">shihasyasin@gmail.com</a></p>
+      <p>Phone: <a href="tel:+919605698790">+91 9605698790</a></p>
+      <p>GitHub: <a href="https://github.com/shihasyasin" target="_blank">https://github.com/ShihasYasinn</a></p>
+      <p>Location: Palakkad, India</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Shihas Yasin S. All rights reserved. | Designed with professionalism and passion.</p>
+  </footer>
+</body>
+</html>
